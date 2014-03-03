@@ -1,0 +1,5 @@
+#!/bin/bash
+
+BASE_DIR=$HOME/ibuild2/w32
+PROD_DIR=$HOME/ibuild2/devr4tw32
+

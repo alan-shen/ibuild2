@@ -1,0 +1,13 @@
+Index: build/core/main.mk
+===================================================================
+--- build/core/main.mk	(revision 170)
++++ build/core/main.mk	(revision 169)
+@@ -515,7 +515,7 @@
+ # Can't use first-makefiles-under here because
+ # --mindepth=2 makes the prunes not work.
+ subdir_makefiles := \
+-	$(shell build/tools/findleaves.py --prune=out --prune=.repo --prune=.git --prune=.svn $(subdirs) Android.mk)
++	$(shell build/tools/findleaves.py --prune=out --prune=.repo --prune=.git $(subdirs) Android.mk)
+ 
+ include $(subdir_makefiles)
+ 

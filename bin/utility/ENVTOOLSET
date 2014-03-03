@@ -1,0 +1,24 @@
+#!/bin/bash
+
+TOP=`dirname ${0}`
+BINPATH=${TOP}
+PATCHPATH=${TOP}/../patch
+UTILITYPATH=${PWD}/${TOP}/../utility
+SYMBOLPATH=${PWD}/${TOP}/../symbol
+
+. ${TOP}/../ENVCONF
+. ${UTILITYPATH}/colordefine.sh
+
+echo -e "${green}Base=${BASE_DIR}${normal}"
+echo -e "${green}Work=${PROD_DIR}${normal}"
+
+ln -sf ${UTILITYPATH}/create_changelist.sh ${BASE_DIR}/create_changelist.sh
+ln -sf ${UTILITYPATH}/restore_codebase.sh  ${BASE_DIR}/restore_codebase.sh
+ln -sf ${SYMBOLPATH}/filelist             ${BASE_DIR}/filelist
+ln -sf ${SYMBOLPATH}/LOCAL_MODULE         ${BASE_DIR}/LOCAL_MODULE
+
+ls --color -lh ${BASE_DIR}/*.sh
+ls --color -lh ${BASE_DIR}/LOCAL_MODULE
+ls --color -lh ${BASE_DIR}/filelist
+
+echo "export PATH=${PWD}:\$PATH" >> ${HOME}/.bashrc
